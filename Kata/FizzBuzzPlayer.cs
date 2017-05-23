@@ -4,11 +4,33 @@
 	{
 		public string Calculate(int input)
 		{
-			if (input % 3 == 0)
+			string result = "";
+
+			result += Fizz(input);
+			result += Buzz(input);
+			if (string.IsNullOrWhiteSpace(result))
+				result = input.ToString();
+
+			return result;
+		}
+
+		private string Fizz(int input)
+		{
+			if (IsDivisibleBy(3, input))
 				return "fizz";
-			if (input == 5)
+			return "";
+		}
+
+		private string Buzz(int input)
+		{
+			if (IsDivisibleBy(5, input))
 				return "buzz";
-			return input.ToString();
+			return "";
+		}
+
+		private static bool IsDivisibleBy(int factor, int input)
+		{
+			return input % factor == 0;
 		}
 	}
 }
