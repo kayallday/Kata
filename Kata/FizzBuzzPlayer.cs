@@ -2,7 +2,26 @@
 {
 	public class FizzBuzzPlayer
 	{
+		readonly ILogger _logger;
+
+		public FizzBuzzPlayer(ILogger logger)
+		{
+			_logger = logger;
+		}
+
 		public string Calculate(int input)
+		{
+			string result = PlayGame(input);
+			AddLogMessage(input, result);
+			return result;
+		}
+
+		private void AddLogMessage(int input, string result)
+		{
+			_logger.Log($"The input was: {input}\nThe output was: {result}\n");
+		}
+
+		private string PlayGame(int input)
 		{
 			string result = "";
 
