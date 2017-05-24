@@ -1,0 +1,5 @@
+﻿{
+  "References": [
+    { "Path": "../kata/FizzBuzz.js" }
+  ]
+}
